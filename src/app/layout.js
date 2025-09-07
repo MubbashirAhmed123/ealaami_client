@@ -1,4 +1,3 @@
-// app/layout.tsx
 import "./globals.css";
 import { Amarante, Geist, Geist_Mono } from "next/font/google";
 import QueryProvider from "./query-provider";
@@ -15,6 +14,7 @@ const geistMono = Geist_Mono({
 
 const amarante = Amarante({
   weight: "400",
+  subsets: ["latin"], // ✅ required
   display: "auto",
   variable: "--font-amarante",
 });
@@ -29,11 +29,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${amarante.variable}`}>
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} ${amarante.variable}`}
+    >
       <body className="antialiased">
-        <QueryProvider>
-          {children}
-        </QueryProvider>
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );
