@@ -19,8 +19,15 @@
   }
 }
 
+@font-face {
+  font-family: 'Kingred Modern';
+  src: url('/Users/ahmed/Desktop/interior-design-app/client/kingred.otf'); 
+  font-style: normal;
+  font-weight: normal;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Kingred Modern', serif;
 }
