@@ -37,11 +37,11 @@ function OurClients() {
     }
 
     return (
-        <div className="py-12 px-2">
+        <div className="py-12 px-2 bg-white dark:bg-[#161717] transition-colors duration-300">
             <div className="mx-auto">
                 {/* Mobile version */}
                 <div className="block lg:hidden">
-                    <div className="text-3xl md:text-4xl font-serif font-bold text-center mb-8 text-gray-800">
+                    <div className="text-3xl md:text-4xl font-serif font-bold text-center mb-8 text-gray-800 dark:text-white">
                         Our Clients
                     </div>
                     <div className="relative">
@@ -53,38 +53,37 @@ function OurClients() {
                                 {clients.map((client) => (
                                     <div
                                         key={client.id}
-                                        className="rounded-lg p-6 flex flex-col items-center justify-center h-24 hover:shadow-lg transition-shadow duration-300 "
+                                        className="bg-gray-50 dark:bg-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 flex flex-col items-center justify-center h-24 hover:shadow-lg hover:shadow-gray-200 dark:hover:shadow-gray-800 transition-all duration-300"
                                     >
-                                        {client.logo && <img src={client.logo} alt={client.name} className="h-12 object-contain" />
-                                        }                                         {!client.logo && <div className="w-64 h-32 flex justify-center items-center text-4xl font-semibold">{client.name}</div>}
+                                        {client.logo && (
+                                            <img 
+                                                src={client.logo} 
+                                                alt={client.name} 
+                                                className="h-24 w-64 object-contain filter dark:brightness-110 dark:contrast-90" 
+                                            />
+                                        )}
+                                        {!client.logo && (
+                                            <div className="w-64 ml-20 h-32 flex justify-center items-center text-4xl font-semibold text-gray-800 dark:text-gray-900 ">
+                                                {client.name}
+                                            </div>
+                                        )}
                                     </div>
                                 ))}
-
                             </div>
                         </div>
 
                         <div className="flex justify-center items-center gap-4">
                             <button
                                 onClick={prevSlide}
-                                className="bg-gray-600 hover:bg-gray-700 text-white p-2 rounded-full shadow-md transition-colors duration-200"
+                                className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 text-white p-2 rounded-full shadow-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                                 disabled={totalSlides <= 1}
                             >
                                 <ChevronLeft size={20} />
                             </button>
 
-                            <div className="flex gap-2">
-                                {Array.from({ length: totalSlides }).map((_, index) => (
-                                    <div
-                                        key={index}
-                                        className={`w-2 h-2 rounded-full transition-colors duration-200 ${index === currentSlide ? 'bg-gray-600' : 'bg-gray-300'
-                                            }`}
-                                    />
-                                ))}
-                            </div>
-
                             <button
                                 onClick={nextSlide}
-                                className="bg-gray-600 hover:bg-gray-700 text-white p-2 rounded-full shadow-md transition-colors duration-200"
+                                className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 text-white p-2 rounded-full shadow-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                                 disabled={totalSlides <= 1}
                             >
                                 <ChevronRight size={20} />
@@ -96,7 +95,7 @@ function OurClients() {
                 {/* Desktop version */}
                 <div className="hidden lg:block lg:items-center lg:gap-8">
                     <div className="flex-shrink-0 mb-10">
-                        <h2 className="text-4xl xl:text-5xl font-serif font-bold text-gray-800 whitespace-nowrap">
+                        <h2 className="text-4xl xl:text-5xl font-serif font-bold text-gray-800 dark:text-white whitespace-nowrap">
                             Our Clients
                         </h2>
                     </div>
@@ -105,7 +104,7 @@ function OurClients() {
                         <div className="flex items-center">
                             <button
                                 onClick={prevSlide}
-                                className="bg-gray-600 hover:bg-gray-700 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-105 z-10"
+                                className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-105 z-10 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                                 disabled={totalSlides <= 1}
                             >
                                 <ChevronLeft size={18} />
@@ -117,14 +116,20 @@ function OurClients() {
                                     style={{ transform: `translateX(-${currentSlide * 25}%)` }}
                                 >
                                     {[...clients, ...clients].map((client, index) => (
-                                        <div key={`${client.id}-${index}`} className="w-1/4 flex-shrink-0 px-3">
-                                            <div className="flex items-center justify-center h-32">
-                                                {client.logo && <img
-                                                    src={client.logo}
-                                                    alt={client.name}
-                                                    className="w-64 h-32 object-contain"
-                                                />}
-                                                {!client.logo && <div className="w-64 h-32 flex justify-center items-center text-4xl font-semibold">{client.name}</div>}
+                                        <div key={`${client?.id || 'empty'}-${index}`} className="w-1/4 flex-shrink-0 px-3">
+                                            <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 flex items-center justify-center h-32 hover:shadow-lg hover:shadow-gray-200 dark:hover:shadow-gray-800 transition-all duration-300">
+                                                {client?.logo && (
+                                                    <img
+                                                        src={client.logo}
+                                                        alt={client.name}
+                                                        className="w-64 h-32 object-contain filter dark:brightness-110 dark:contrast-90"
+                                                    />
+                                                )}
+                                                {client && !client.logo && (
+                                                    <div className="w-64 h-32 flex justify-center ml-5 items-center text-4xl font-semibold text-gray-800 dark:text-gray-200">
+                                                        {client.name}
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                     ))}
@@ -133,15 +138,16 @@ function OurClients() {
 
                             <button
                                 onClick={nextSlide}
-                                className="bg-gray-600 hover:bg-gray-700 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-105 z-10"
+                                className="bg-gray-600 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-105 z-10 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                                disabled={totalSlides <= 1}
                             >
                                 <ChevronRight size={20} />
                             </button>
                         </div>
-
-
                     </div>
                 </div>
+
+                
             </div>
         </div>
     )

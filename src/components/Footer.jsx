@@ -36,9 +36,9 @@ export default function Footer() {
             </h4>
             <div className="">
 
-              <a href="tel:+9886576154" className="text-white text-lg">+91 9886576154 </a>
+              <a href="tel:+91 9886576154" className="text-white text-lg">+91 9886576154 </a>
               <br />
-              <a href="tel:+919380048650" className="text-white text-lg">+91 9380048650 </a>
+              <a href="tel:+91 9380048650" className="text-white text-lg">+91 9380048650 </a>
 
             </div>
             <div className="flex items-center gap-2">
@@ -60,7 +60,7 @@ export default function Footer() {
 
        <div className='flex flex-col md:relative md:flex-row md:items-center w-full border-t border-gray-200 mt-10 pt-6 text-sm space-y-2 md:space-y-0'>
   <div className="text-center md:text-left">
-    developed By Mubbashir Ahmed +91 7619562992
+    developed By Mubbashir Ahmed <a href="tel:+91 7619562002">+917619562002</a>
   </div>
   <div className="text-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
     © {new Date().getFullYear()} Ealaami Interior Studio. All rights reserved.

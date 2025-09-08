@@ -21,6 +21,7 @@ export default function Home() {
       <Hero/>
       <Services/>
       <Gallery/>
+      <hr className="text-gray-700"/>
       <OurClients/>
         <Contact/>
 

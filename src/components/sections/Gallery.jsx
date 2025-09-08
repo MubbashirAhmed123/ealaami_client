@@ -9,7 +9,6 @@ const projects = [
         category: '',
         image: '/images/project1/IMG_0478.jpeg',
         description: 'Banashankari',
-
         gallery: [
             '/images/project1/IMG_0478.jpeg',
             '/images/project1/IMG_0491.jpeg',
@@ -59,7 +58,7 @@ const projects = [
             '/images/project4/img5.jpeg'
         ]
     },
-     {
+    {
         title: '2D & 3D Designs',
         category: 'Country Mansion',
         image:'/images/project5/1.jpg',
@@ -79,6 +78,7 @@ export default function Gallery() {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState(0);
     const [imageLoaded, setImageLoaded] = useState({});
+    const [showThumbnails, setShowThumbnails] = useState(true);
     const ref = useRef(null);
 
     // Mock scroll transform values for the animations
@@ -142,7 +142,7 @@ export default function Gallery() {
     }, []);
 
     const openPopup = useCallback(() => {
-        console.log('Opening popup for project:', projects[currentProject].title); // Debug log
+        console.log('Opening popup for project:', projects[currentProject].title);
         setIsPopupOpen(true);
         setSelectedImage(0);
     }, [currentProject]);
@@ -222,12 +222,12 @@ export default function Gallery() {
 
                         {/* Project Info */}
                         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 text-white opacity-100 transform translate-y-0 transition-all duration-400 delay-400">
-                           
                             <h3 className="text-lg md:text-3xl font-serif font-bold mb-1 md:mb-2 line-clamp-1">
                                 {projects[currentProject].title}
                             </h3>
-                            <p className="flex items-center gap-1 "><LuMapPin color='red'/>  
- {projects[currentProject].description}
+                            <p className="flex items-center gap-1">
+                                <LuMapPin color='red'/>  
+                                {projects[currentProject].description}
                             </p>
                         </div>
                     </div>
@@ -264,10 +264,10 @@ export default function Gallery() {
                 </div>
             </section>
 
-            {/* Image Popup/Modal */}
+            {/* Image Popup/Modal - Responsive */}
             {isPopupOpen && (
                 <div 
-                    className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+                    className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-2 md:p-4"
                     onClick={(e) => {
                         // Close popup when clicking on backdrop
                         if (e.target === e.currentTarget) {
@@ -278,51 +278,104 @@ export default function Gallery() {
                     {/* Close button */}
                     <button
                         onClick={closePopup}
-                        className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all hover:scale-110 z-60"
+                        className="absolute top-2 right-2 md:top-4 md:right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all hover:scale-110 z-60"
                         aria-label="Close gallery"
                     >
-                        <X className="w-6 h-6" />
+                        <X className="w-5 h-5 md:w-6 md:h-6" />
                     </button>
 
-                    <div className="w-full max-w-7xl h-full flex gap-4">
-                        {/* Left side - Main large image */}
-                        <div className="flex-1 flex items-center justify-center relative">
+                    {/* Mobile Layout */}
+                    <div className="w-full h-full flex flex-col md:flex-row md:gap-4">
+                        {/* Main Image Container */}
+                        <div className="flex-1 flex items-center justify-center relative min-h-0">
                             <div className="relative w-full h-full flex items-center justify-center">
                                 <img
                                     src={projects[currentProject].gallery[selectedImage]}
                                     alt={`${projects[currentProject].title} - Image ${selectedImage + 1}`}
-                                    className="max-h-[95vh] h-[90vh] max-w-full rounded-lg object-contain shadow-2xl"
+                                    className="max-h-[70vh] md:max-h-[95vh] md:h-[90vh] max-w-full rounded-lg object-contain shadow-2xl"
                                 />
                                 
                                 {/* Navigation arrows for main image */}
                                 <button
                                     onClick={prevImage}
-                                    className="absolute left-4 p-3 bg-black/50 hover:bg-black/70 rounded-full text-white transition-all hover:scale-110"
+                                    className="absolute left-2 md:left-4 p-2 md:p-3 bg-black/50 hover:bg-black/70 rounded-full text-white transition-all hover:scale-110"
                                     aria-label="Previous image"
                                 >
-                                    <ChevronLeft className="w-6 h-6" />
+                                    <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
                                 </button>
                                 <button
                                     onClick={nextImage}
-                                    className="absolute right-4 p-3 bg-black/50 hover:bg-black/70 rounded-full text-white transition-all hover:scale-110"
+                                    className="absolute right-2 md:right-4 p-2 md:p-3 bg-black/50 hover:bg-black/70 rounded-full text-white transition-all hover:scale-110"
                                     aria-label="Next image"
                                 >
-                                    <ChevronRight className="w-6 h-6" />
+                                    <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
                                 </button>
                             </div>
                         </div>
 
-                        {/* Right side - Scrollable thumbnails */}
-                        <div className="w-80 flex flex-col">
+                        {/* Mobile: Bottom info panel with toggle for thumbnails */}
+                        <div className="md:hidden bg-white/5 backdrop-blur-sm p-4 rounded-t-lg">
+                            {/* Project info */}
+                            <div className="text-white mb-3">
+                                {projects[currentProject].category && (
+                                    <span className="inline-block px-2 py-1 text-xs bg-red-600 rounded-full font-medium mb-2">
+                                        {projects[currentProject].category}
+                                    </span>
+                                )}
+                                <h3 className="text-lg font-bold mb-1">
+                                    {projects[currentProject].title}
+                                </h3>
+                                <p className="text-gray-300 text-sm flex items-center gap-1">
+                                    <LuMapPin className="w-3 h-3" color='red'/>
+                                    {projects[currentProject].description}
+                                </p>
+                                <div className="flex justify-between items-center mt-2">
+                                    <div className="text-sm text-gray-400">
+                                        {selectedImage + 1} of {projects[currentProject].gallery.length}
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
+                            {/* Collapsible thumbnail strip for mobile */}
+                            {showThumbnails && (
+                                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                                    {projects[currentProject].gallery.map((image, index) => (
+                                        <div
+                                            key={index}
+                                            onClick={() => selectImage(index)}
+                                            className={`flex-shrink-0 cursor-pointer rounded overflow-hidden transition-all duration-300 ${
+                                                index === selectedImage 
+                                                    ? 'ring-2 ring-red-600 scale-105' 
+                                                    : 'opacity-70 hover:opacity-100'
+                                            }`}
+                                        >
+                                            <img
+                                                src={image}
+                                                alt={`Thumbnail ${index + 1}`}
+                                                className="w-16 h-12 object-cover"
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Desktop: Right sidebar */}
+                        <div className="hidden md:flex md:w-80 md:flex-col">
                             {/* Project info */}
                             <div className="text-white mb-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm">
-                                <span className="inline-block px-3 py-1 text-sm bg-red-600 rounded-full font-medium mb-2">
-                                    {projects[currentProject].category}
-                                </span>
+                                {projects[currentProject].category && (
+                                    <span className="inline-block px-3 py-1 text-sm bg-red-600 rounded-full font-medium mb-2">
+                                        {projects[currentProject].category}
+                                    </span>
+                                )}
                                 <h3 className="text-2xl font-bold mb-2">
                                     {projects[currentProject].title}
                                 </h3>
-                                <p className="text-gray-300 text-sm">
+                                <p className="text-gray-300 text-sm flex items-center gap-1">
+                                    <LuMapPin className="w-4 h-4" color='red'/>
                                     {projects[currentProject].description}
                                 </p>
                                 <div className="mt-2 text-sm text-gray-400">

@@ -23,7 +23,7 @@ export default function Contact() {
       setSubmit(true)
 
       if(!contactInfo.name || !contactInfo.email || !contactInfo.message){
-        alert('Please fill all the fields')
+        alert('Please fill all the fields.')
         return
       }
     const res = await fetch(`${baseUrl}/api/contact`, {
@@ -49,7 +49,7 @@ export default function Contact() {
         message: ''
       })
       setSubmit(true)
-      alert(error)
+      alert('Some error occurred. Please try again later.')
       return
       
     }
@@ -90,7 +90,7 @@ export default function Contact() {
                 <input
                   type="text"
                   id="name"
-                  className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-600"
+                  className="w-full bg-black/50 border  rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-600 border-black"
                   placeholder="Your Name"
                   value={contactInfo.name}
                   onChange={(e) => setContactInfo({ ...contactInfo, name: e.target.value })}
@@ -108,11 +108,11 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="phone" className="block text-gray-300 mb-2">Phone</label>
+                <label htmlFor="phone" className="block text-gray-300 mb-2">Phone (optional)</label>
                 <input
                   type="text"
                   id="phone"
-                  className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-600"
+                  className="w-full bg-black/50 border border-black rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-600"
                   placeholder="Your Phone Number"
                   value={contactInfo.phone}
                   onChange={(e) => setContactInfo({ ...contactInfo, phone: e.target.value })}
@@ -123,7 +123,7 @@ export default function Contact() {
                 <textarea
                   id="message"
                   rows={5}
-                  className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-600"
+                  className="w-full bg-black/50 border border-black rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-600"
                   placeholder="Tell us about your requirements...."
                   value={contactInfo.message}
                   onChange={(e) => setContactInfo({ ...contactInfo, message: e.target.value })}
@@ -175,8 +175,8 @@ export default function Contact() {
                 <div className='flex items-center'>
 
                 
-                <a href='tel:+919886576154' className="text-gray-300 mx-1">+91 9886576154 | <br /></a>
-                <a href="tel:+919380048650" className="text-gray-300">+91 9380048650 </a>
+                <a href='tel:+91 9886576154' className="text-gray-300 mx-1">+91 9886576154 | <br /></a>
+                <a href="tel:+91 9380048650" className="text-gray-300">+91 9380048650 </a>
                 </div>
                 <p className='text-gray-300'>Monday-Friday</p>
                 <p className='text-gray-300'>10AM-7PM</p>

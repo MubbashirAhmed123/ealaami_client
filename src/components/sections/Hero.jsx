@@ -103,7 +103,7 @@ export default function Hero() {
         })}
       </div>
 
-      <div className="relative z-10 h-full flex items-center justify-center text-center px-4">
+      <div className="relative z-10 h-full flex items-center justify-center text-center ">
         <div className="max-w-4xl mx-auto text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 hover:scale-105 transition-transform duration-300">
             {images[currentIndex].title}

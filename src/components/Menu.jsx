@@ -31,7 +31,7 @@ export default function Menu() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10"
+      className="fixed top-0 left-0 right-0 z-50 bg-black backdrop-blur-md border-b border-white/10 p-2"
 
     >
       <div className="max-w-7xl mx-auto md:px-4 lg:px-8">
