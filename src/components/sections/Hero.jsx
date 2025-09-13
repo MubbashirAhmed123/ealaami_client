@@ -116,7 +116,7 @@ export default function Hero() {
               href="#gallery"
               className="inline-block px-8 py-3 bg-red-600 hover:bg-red-700 rounded-md text-white font-medium transition-all duration-300 shadow-lg hover:shadow-red-600/30 hover:scale-105"
             >
-              Discover Our Designs
+              Discover Our Works
             </a>
           </div>
         </div>

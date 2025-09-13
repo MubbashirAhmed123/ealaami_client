@@ -63,7 +63,7 @@ function OurClients() {
                                             />
                                         )}
                                         {!client.logo && (
-                                            <div className="w-64 ml-20 h-32 flex justify-center items-center text-4xl font-semibold text-gray-800 dark:text-gray-900 ">
+                                            <div className="w-full ml-0 h-32 flex justify-center items-center text-4xl font-semibold text-gray-800 dark:text-gray-900 ">
                                                 {client.name}
                                             </div>
                                         )}
@@ -126,7 +126,7 @@ function OurClients() {
                                                     />
                                                 )}
                                                 {client && !client.logo && (
-                                                    <div className="w-64 h-32 flex justify-center ml-5 items-center text-4xl font-semibold text-gray-800 dark:text-gray-200">
+                                                    <div className="w-full h-32 flex justify-center ml-5 items-center text-4xl font-semibold text-gray-800 dark:text-gray-200">
                                                         {client.name}
                                                     </div>
                                                 )}

@@ -7,11 +7,11 @@ const services = [
     title: 'Turnkey Interior Works',
     image: '/images/project1/IMG_0491.jpeg',
     features: [
-      'Modular Carpentry Work',
-      'False Ceiling',
-      'Lighting and Electric Work',
-      'Painting',
-      'Tile and Granete Works',
+      'Modular Carpentry Works,',
+      'False Ceiling,',
+      'Lighting and Electrical Works,',
+      'Wallpaper & Painting,',
+      'Tile and Granite Works.',
     ]
   },
     {
@@ -26,18 +26,18 @@ const services = [
     title: 'Furniture',
     image: '/images/furniture.avif',
     features: [
-      'Custom Made Furniture',
-      'Sofa, Bed, Dining Table, Etc',
-      'Modifications of Furniture'
+      'Custom Made Furniture,',
+      'Sofa, Bed, Dining Table, Etc,',
+      'Modifications of Furniture.'
     ]
   },
   {
     title: 'Fabirication',
     image: '/images/fabrication.jpeg',
     features: [
-      'Safety Gate',
-      'Railings',
-      'All Type of Fabrication Work',
+      'Safety Gate,',
+      'MS & SS Railings,',
+      'All Type of Fabrication Works.',
 
     ]
   },
@@ -45,7 +45,7 @@ const services = [
     title: 'Gas Pipelines Laying and Others',
     image: '/images/gaspipe.jpg',
     features: [
-      'Gas Pipe Lines For Residential and Commercial Purposes',
+      'Gas Pipe Lines For Residential and Commercial Purposes.',
       // 'Custom ma
       // de furniture including Bed, Sofa, Dining table, Study table etc.',
       // 'Modifications of furniture'
@@ -164,9 +164,9 @@ export default function Services() {
           </div>
         </div>
       </div>
-
-      {/* Navigation Arrows */}
-      <div className="absolute inset-x-0 flex justify-between px-4 z-20 pointer-events-none opacity-100">
+      
+      {/* Navigation Arrows - Mobile: Bottom, Desktop: Center */}
+      <div className="absolute bottom-20 sm:top-1/2 sm:bottom-auto sm:-translate-y-1/2 sm:inset-x-0 flex justify-between px-4 z-20 pointer-events-none opacity-100 gap-10">
         <button
           onClick={prevService}
           className="pointer-events-auto p-3 rounded-full bg-white/90 hover:bg-white backdrop-blur-sm shadow-lg transition-all hover:scale-110 hover:text-red-600"
@@ -184,7 +184,7 @@ export default function Services() {
       </div>
 
       {/* Indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2 opacity-100">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2 opacity-100">
         {services.map((_, index) => (
           <button
             key={index}

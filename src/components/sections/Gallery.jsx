@@ -190,7 +190,7 @@ export default function Gallery() {
                             Our <span className="text-red-600">Portfolio</span>
                         </h2>
                         <p className="text-sm md:text-lg text-gray-300 max-w-md md:max-w-2xl mx-auto">
-                            Witness the transformation through our signature projects
+                            Witness the transformations through our signature projects
                         </p>
                     </div>
 
@@ -240,14 +240,14 @@ export default function Gallery() {
                         className="pointer-events-auto p-2 md:p-3 rounded-full bg-white/90 hover:bg-white backdrop-blur-sm shadow-lg transition-all hover:scale-110 hover:text-red-600"
                         aria-label="Previous project"
                     >
-                        <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 text-gray-900" />
+                        <ChevronLeft  className="w-4 h-4 md:w-7 md:h-7 text-gray-900" />
                     </button>
                     <button
                         onClick={nextProject}
                         className="pointer-events-auto p-2 md:p-3 rounded-full bg-white/90 hover:bg-white backdrop-blur-sm shadow-lg transition-all hover:scale-110 hover:text-red-600"
                         aria-label="Next project"
                     >
-                        <ChevronRight className="w-4 h-4 md:w-6 md:h-6 text-gray-900" />
+                        <ChevronRight className="w-4 h-4 md:w-7 md:h-7 text-gray-900" />
                     </button>
                 </div>
 
@@ -301,14 +301,14 @@ export default function Gallery() {
                                     className="absolute left-2 md:left-4 p-2 md:p-3 bg-black/50 hover:bg-black/70 rounded-full text-white transition-all hover:scale-110"
                                     aria-label="Previous image"
                                 >
-                                    <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
+                                    <ChevronLeft className="w-4 h-4 md:w-7 md:h-7" />
                                 </button>
                                 <button
                                     onClick={nextImage}
                                     className="absolute right-2 md:right-4 p-2 md:p-3 bg-black/50 hover:bg-black/70 rounded-full text-white transition-all hover:scale-110"
                                     aria-label="Next image"
                                 >
-                                    <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
+                                    <ChevronRight className="w-4 h-4 md:w-7 md:h-7" />
                                 </button>
                             </div>
                         </div>
@@ -363,7 +363,7 @@ export default function Gallery() {
                         </div>
 
                         {/* Desktop: Right sidebar */}
-                        <div className="hidden md:flex md:w-80 md:flex-col">
+                        <div className="hidden md:flex md:w-80 md:flex-col h-full">
                             {/* Project info */}
                             <div className="text-white mb-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm">
                                 {projects[currentProject].category && (
