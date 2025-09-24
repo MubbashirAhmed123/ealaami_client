@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://ealaami.in
+Host: https://www.ealaami.in
 
 # Sitemaps
-Sitemap: https://ealaami.in/sitemap.xml
+Sitemap: https://www.ealaami.in/sitemap.xml
