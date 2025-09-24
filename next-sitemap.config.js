@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: "https://ealaami.in",
+  siteUrl: "https://www.ealaami.in",
   generateRobotsTxt: true,
   outDir: "./public", 
 };
