@@ -24,7 +24,7 @@ export const metadata = {
   title: "Ealaami Interior Solutions",
   description: "Ealaami Interior Solutions – Expert interior design and home solutions.",
   keywords: "Ealaami, interior design, home solutions, interiors, decoration",
-  authors: [{ name: "Ealaami" }],
+  authors: [{ name: "Ealaami" }], 
   robots: "index, follow",
   icons: {
     icon: "/images/titleLogo.jpg",

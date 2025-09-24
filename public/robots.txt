@@ -1,9 +1,6 @@
-# *
+# Allow all crawlers
 User-agent: *
 Allow: /
 
-# Host
-Host: https://www.ealaami.in
-
-# Sitemaps
+# Sitemap location
 Sitemap: https://www.ealaami.in/sitemap.xml
