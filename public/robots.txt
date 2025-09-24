@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ealaami.in
+
+# Sitemaps
+Sitemap: https://ealaami.in/sitemap.xml
