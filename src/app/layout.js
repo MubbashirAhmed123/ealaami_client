@@ -62,6 +62,21 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${amarante.variable}`}
     >
+       <head>
+        {/* ✅ Structured Data for Google Logo */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Ealaami Interior Solutions",
+              "url": "https://www.ealaami.in",
+              "logo": "https://www.ealaami.in/images/titleLogo.jpg",
+            }),
+          }}
+        />
+      </head>
       <body className="antialiased">
         <QueryProvider>{children}</QueryProvider>
       </body>
