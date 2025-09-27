@@ -24,19 +24,22 @@ export const metadata = {
   title: "Ealaami Interior Solutions",
   description: "Ealaami Interior Solutions – Expert interior design and home solutions.",
   keywords: "Ealaami, interior design, home solutions, interiors, decoration",
-  authors: [{ name: "Ealaami" }], 
+  authors: [{ name: "Ealaami" }],
   robots: "index, follow",
   icons: {
     icon: "/images/titleLogo.jpg",
   },
+  alternates: {
+    canonical: "https://www.ealaami.in",
+  },
   openGraph: {
     title: "Ealaami Interior Solutions",
     description: "Ealaami Interior Solutions – Expert interior design and home solutions.",
-    url: "https://ealaami.in",
+    url: "https://www.ealaami.in",
     siteName: "Ealaami",
     images: [
       {
-        url: "https://ealaami.in/images/titleLogo.jpg",
+        url: "https://www.ealaami.in/images/titleLogo.jpg",
         width: 800,
         height: 600,
       },
@@ -48,9 +51,10 @@ export const metadata = {
     card: "summary_large_image",
     title: "Ealaami Interior Solutions",
     description: "Ealaami Interior Solutions – Expert interior design and home solutions.",
-    images: ["https://ealaami.in/images/titleLogo.jpg"],
+    images: ["https://www.ealaami.in/images/titleLogo.jpg"],
   },
 };
+
 
 export default function RootLayout({ children }) {
   return (
