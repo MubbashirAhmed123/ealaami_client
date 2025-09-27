@@ -9,13 +9,6 @@ const nextConfig = {
         destination: 'https://www.ealaami.in/:path*',
         permanent: true,
       },
-      // Redirect http to https (if needed)
-      {
-        source: '/:path*',
-        has: [{ type: 'protocol', value: 'http' }],
-        destination: 'https://www.ealaami.in/:path*',
-        permanent: true,
-      },
     ];
   },
 };
